@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-int tcp_server(int port, int family = AF_INET);
-int tcp_connect(const char* host, int port, int family = AF_INET);
+int TcpServer(int iPort, int iFamily = AF_INET);
+int TcpConnect(const char* szHost, int iPort, int iFamily = AF_INET);
 
 #endif

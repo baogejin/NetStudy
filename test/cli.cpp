@@ -1,9 +1,17 @@
 #include "../common/BSocket.h"
 #include <iostream>
+#include <string>
 int main()
 {
-    char ip[] = "00:16:3e:12:99:82";
-    int fd = tcp_connect(ip,7788,AF_INET6);
+    char ip[] = "127.0.0.1";
+    int fd = TcpConnect(ip,7788);
     std::cout<<fd <<std::endl;
+    char szMsg[] = "hello svr, i am cli!";
+    write(fd, szMsg, sizeof(szMsg));
+    std::string strMsg = "\n";
+    while(getline(std::cin,strMsg))
+    {
+        write(fd, strMsg.c_str(), strMsg.length());
+    }
     return 0;
 }
